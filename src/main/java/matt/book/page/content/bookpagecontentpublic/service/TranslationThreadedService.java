@@ -1,5 +1,7 @@
 package matt.book.page.content.bookpagecontentpublic.service;
 
+import static matt.book.page.content.bookpagecontentpublic.constants.Constants.TRANSLATION_CHUNK_SIZE;
+
 import com.theokanning.openai.Usage;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;

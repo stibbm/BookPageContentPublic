@@ -1,5 +1,7 @@
 package matt.book.page.content.bookpagecontentpublic.service;
 
+import static matt.book.page.content.bookpagecontentpublic.constants.Constants.TRANSLATION_CHUNK_SIZE;
+
 import com.google.gson.Gson;
 import com.theokanning.openai.Usage;
 import com.theokanning.openai.completion.chat.ChatCompletionRequest;

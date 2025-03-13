@@ -10,6 +10,7 @@ import com.google.api.services.youtube.model.VideoStatus;
 import java.io.IOException;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
+import matt.book.page.content.bookpagecontentpublic.model.VideoData;
 import matt.book.page.content.bookpagecontentpublic.model.YouTubeVideo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,9 +46,6 @@ public class YoutubeUploadService {
             .insert("snippet,statistics,status", video, mediaContent);
         Video uploadedVideo = videoInsert.execute();
         String videoUrl = YOUTUBE_VIDEO_URL_TEMPLATE.replace("{videoId}", uploadedVideo.getId());
-
-
-
         YouTubeVideo youTubeVideo = YouTubeVideo.builder()
             .videoId(uploadedVideo.getId())
             .title(uploadedVideo.getSnippet().getTitle())
