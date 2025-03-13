@@ -1,17 +1,61 @@
 plugins {
-    id 'java'
-    id 'org.springframework.boot' version '3.4.3'
-    id 'io.spring.dependency-management' version '1.1.7'
+	id 'org.springframework.boot' version '2.7.0'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'idea'
+	id 'eclipse'
+	id 'io.freefair.lombok' version '6.4.3'
+	id 'com.github.johnrengelman.shadow' version '7.1.2'
+	id 'java-library'
+	id 'maven-publish'
+	id 'com.adarshr.test-logger' version '3.2.0'
 }
-
-group = 'matt.book.page.content'
-version = '0.0.1-SNAPSHOT'
 
 java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
+	withSourcesJar()
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
 }
+eclipse {
+	classpath {
+		downloadSources = true
+		downloadJavadoc = true
+	}
+}
+idea {
+	module {
+		downloadJavadoc = false
+		downloadSources = true
+	}
+}
+
+jar {
+	manifest {
+		attributes 'Main-Class': 'matt.book.data.client.Application'
+	}
+}
+
+
+
+compileJava {
+	options.release = 17
+}
+
+
+
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+
+
+group = 'book.page.content.bookpagecontentpublic'
+version = '1.00'
+
 
 repositories {
     mavenCentral()
@@ -21,8 +65,42 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	implementation 'matt.book.data.client:bookdataclient:1.54'
+  	implementation 'com.google.firebase:firebase-admin:9.2.0'
+	implementation 'com.amazonaws:aws-java-sdk-s3:1.12.301'
+	implementation 'software.amazon.awssdk:sesv2:2.17.248'
+	implementation 'software.amazon.awssdk:polly:2.17.248'
+	implementation 'software.amazon.awssdk:s3:2.17.248'
+	implementation 'software.amazon.awssdk:dynamodb:2.17.248'
+	implementation 'software.amazon.awssdk:secretsmanager:2.17.248'
+
+
+	testImplementation 'junit:junit:4.13.2'
+	testImplementation 'org.mockito:mockito-core:5.10.0'
+	testImplementation 'org.assertj:assertj-core:3.19.0'
+	implementation 'com.google.code.gson:gson:2.10.1'
+	implementation 'com.google.guava:guava:31.1-jre'
+	implementation 'com.google.inject:guice:5.1.0'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework:spring-aop:5.3.20'
+	implementation 'org.reflections:reflections:0.10.2'
+	implementation 'org.slf4j:slf4j-api:1.7.36'
+	compileOnly 'org.projectlombok:lombok:1.18.24'
+	annotationProcessor 'org.projectlombok:lombok:1.18.24'
+	testCompileOnly 'org.projectlombok:lombok:1.18.24'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+	implementation 'commons-io:commons-io:2.16.0'
+	implementation 'com.theokanning.openai-gpt3-java:service:0.12.0'
+	implementation 'com.stripe:stripe-java:21.12.0'
+
+	implementation 'com.google.http-client:google-http-client-jackson2:1.42.0'
+	implementation 'com.google.apis:google-api-services-youtube:v3-rev222-1.25.0'
+	implementation 'com.google.oauth-client:google-oauth-client-jetty:1.32.1'
+	implementation 'com.google.api-client:google-api-client:1.32.1'
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
+bootRun {
+	jvmArgs = ["-Xmx9192m", "-Xms512m"]
 }
