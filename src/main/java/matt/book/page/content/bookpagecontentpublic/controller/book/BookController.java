@@ -41,5 +41,48 @@ public class BookController {
             .build();
         return ResponseEntity.ok(apiMessage);
     }
+
+	@GetMapping("/getAllBookCardsSortedPaged")
+	@CrossOrigin("*")
+	public @ResponseBody ResponseEntity<ApiMessage> getAllBookCardsSorted(
+		@RequestParam String bookSortType,
+		@RequestParam String pageNumber,
+		@RequestParam String pageSize,
+		@RequestHeader("Authorization") String authToken
+	) throws IOException, InterruptedException {
+		List<BookCard> bookCardList = bookManager.getAllBookCardsSortedPaged(
+			bookSortType,
+			pageNumber,
+			pageSize,
+			authToken
+		);
+		ApiMessage apiMessage = ApiMessage.builder()
+			.body(bookCardList)
+			.message("successfully retrieved sorted book cards paged")
+			.error(false)
+			.build();
+		return ResponseEntity.ok(apiMessage);
+	}
+
+	@PostMapping("/createBook")
+	@CrossOrigin("*")
+	public @ResponseBody ResponseEntity<ApiMessage> createBook(
+			@ModelAttribute CreateBookFormData createBookFormData,
+			@RequestHeader("Authorization") String authToken) throws IOException, InterruptedException {
+		Book book = bookManager.createBook(
+				createBookFormData.getBookName(),
+				createBookFormData.getBookDescription(),
+				createBookFormData.getBookLanguage(),
+				createBookFormData.getBookTags(),
+				createBookFormData.getBookThumbnailFile(),
+				authToken);
+		ApiMessage apiMessage = ApiMessage.builder()
+				.body(book)
+				.message("successfully saved book")
+				.error(false)
+				.build();
+		return ResponseEntity.ok(apiMessage);
+	}
+
     
 }
