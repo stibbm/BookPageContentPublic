@@ -1,94 +1,226 @@
-# Book Page Content (public)
+<div align="center">
 
-## High-Level Overview
+# 📖 Book Page Content
 
-<img width="784" height="654" alt="OverviewDiagram_v4" src="https://github.com/user-attachments/assets/7a2157d6-41c4-492f-97e3-9c9898cec451" />
+**A robust backend service for managing books, chapters, images, videos, and content search**
 
-## System Architecture
+[![Java](https://img.shields.io/badge/Java-17+-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/)
+[![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.0-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](https://spring.io/projects/spring-boot)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white)](https://gradle.org/)
 
-<img width="7840" height="3160" alt="ArchitectureDiagram" src="https://github.com/user-attachments/assets/7c54298a-6cd0-4cfb-acc4-667efa35df81" />
+---
 
-## Entity-Relationship Diagram
+[📐 Design](#-design) •
+[📚 Books API](#-books-api) •
+[📑 Chapters API](#-chapters-api) •
+[🖼️ Images API](#️-images-api) •
+[🎬 Videos API](#-videos-api) •
+[🔍 Search API](#-search-api)
 
-<img width="2352" height="1896" alt="ERDiagram" src="https://github.com/user-attachments/assets/96cbe857-91d7-4841-bba7-0c9318674b22" />
+</div>
 
+---
 
-## Book Endpoints
+## ✨ Features
 
-**BookController**
+- 📚 **Book Management** — Create and browse books with pagination and sorting
+- 📑 **Chapter Organization** — Flexible chapter creation and management
+- 🖼️ **Image Handling** — Upload and retrieve images by book and chapter
+- 🎬 **Video Support** — Full video content management per chapter
+- 🔍 **Powerful Search** — Search books by content and tags
+- 👤 **Account System** — User account creation and management
+- 🏆 **Milestone Tracking** — Track and update user milestones
 
-* GET "/getAllBooksPaged"
-* GET "/getAllBookCardsPaged"
-* GET "/getAllBookCardsSortedPaged"
-* POST "/createBook"
+---
 
-**BookDetailsController**
+## 📐 Design
 
-* GET "/getBookDetailsCardByBookName"
-* GET "/getBookDetailsCardByBookNameBatched"
+### High-Level Overview
 
-**PublicBookDetailsCardController**
+<img width="100%" alt="OverviewDiagram_v4" src="https://github.com/user-attachments/assets/7a2157d6-41c4-492f-97e3-9c9898cec451" />
 
-* GET "/getPublicBookDetailsCardByBookNumber"
+### System Architecture
 
-**BookViewController**
+<img width="100%" alt="ArchitectureDiagram" src="https://github.com/user-attachments/assets/7c54298a-6cd0-4cfb-acc4-667efa35df81" />
 
-* GET "/createBookView"
+### Entity-Relationship Diagram
 
+<img width="100%" alt="ERDiagram" src="https://github.com/user-attachments/assets/96cbe857-91d7-4841-bba7-0c9318674b22" />
 
-## Chapter Endpoints
+---
 
-**ChapterController**
+## 📡 API Reference
 
-* POST "/createChapterWithSpecifiedChapterNumber"
-* POST "/createChapter"
+### 📚 Books API
 
-**ChapterHeaderController**
+<details open>
+<summary><b>BookController</b></summary>
 
-* GET "/getChapterHeadersByBookName"
+| Method | Endpoint | Description |
+|:------:|:---------|:------------|
+| `GET` | `/getAllBooksPaged` | Retrieve all books with pagination |
+| `GET` | `/getAllBookCardsPaged` | Get book cards with pagination |
+| `GET` | `/getAllBookCardsSortedPaged` | Get sorted book cards with pagination |
+| `POST` | `/createBook` | Create a new book |
 
+</details>
 
-## Image Endpoints
+<details>
+<summary><b>BookDetailsController</b></summary>
 
-**ImageController**
+| Method | Endpoint | Description |
+|:------:|:---------|:------------|
+| `GET` | `/getBookDetailsCardByBookName` | Get book details by name |
+| `GET` | `/getBookDetailsCardByBookNameBatched` | Get multiple book details in batch |
 
-* GET "/getImagesByBookNameAndChapterNumberPaged"
-* POST "/createImage"
-* GET "/getImage"
+</details>
 
+<details>
+<summary><b>PublicBookDetailsCardController</b></summary>
 
-## Milestone Endpoints
+| Method | Endpoint | Description |
+|:------:|:---------|:------------|
+| `GET` | `/getPublicBookDetailsCardByBookNumber` | Get public book details by book number |
 
-**Milestone Controller**
+</details>
 
-* GET "/updateMilestone"
-* GET "/getMilestone"
+<details>
+<summary><b>BookViewController</b></summary>
 
+| Method | Endpoint | Description |
+|:------:|:---------|:------------|
+| `GET` | `/createBookView` | Record a book view |
 
-## Search Endpoints
+</details>
 
-**SearchController**
+---
 
-* GET "/searchBooksByBookTags"
-* GET "/searchBooksByContent"
-* GET "/searchBookCardsByBookTags"
-* GET "/searchBookCardsByContent"
+### 📑 Chapters API
 
-## Account Endpoints
+<details open>
+<summary><b>ChapterController</b></summary>
 
-**AccountController**
+| Method | Endpoint | Description |
+|:------:|:---------|:------------|
+| `POST` | `/createChapterWithSpecifiedChapterNumber` | Create chapter with specific number |
+| `POST` | `/createChapter` | Create a new chapter |
 
-* GET "/createAccount"
-* GET "/getAccount"
+</details>
 
-## Video Endpoints
+<details>
+<summary><b>ChapterHeaderController</b></summary>
 
-**VideoController**
+| Method | Endpoint | Description |
+|:------:|:---------|:------------|
+| `GET` | `/getChapterHeadersByBookName` | Get chapter headers for a book |
 
-* GET "/createVideo"
-* GET "/getVideosByBookNameAndChapterNumber"
-* GET "/getVideo"
+</details>
 
+---
 
+### 🖼️ Images API
 
+<details open>
+<summary><b>ImageController</b></summary>
 
+| Method | Endpoint | Description |
+|:------:|:---------|:------------|
+| `GET` | `/getImagesByBookNameAndChapterNumberPaged` | Get images with pagination |
+| `POST` | `/createImage` | Upload a new image |
+| `GET` | `/getImage` | Retrieve a specific image |
+
+</details>
+
+---
+
+### 🎬 Videos API
+
+<details open>
+<summary><b>VideoController</b></summary>
+
+| Method | Endpoint | Description |
+|:------:|:---------|:------------|
+| `GET` | `/createVideo` | Create a new video |
+| `GET` | `/getVideosByBookNameAndChapterNumber` | Get videos by book and chapter |
+| `GET` | `/getVideo` | Retrieve a specific video |
+
+</details>
+
+---
+
+### 🔍 Search API
+
+<details open>
+<summary><b>SearchController</b></summary>
+
+| Method | Endpoint | Description |
+|:------:|:---------|:------------|
+| `GET` | `/searchBooksByBookTags` | Search books by tags |
+| `GET` | `/searchBooksByContent` | Full-text content search |
+| `GET` | `/searchBookCardsByBookTags` | Search book cards by tags |
+| `GET` | `/searchBookCardsByContent` | Search book cards by content |
+
+</details>
+
+---
+
+### 👤 Accounts API
+
+<details open>
+<summary><b>AccountController</b></summary>
+
+| Method | Endpoint | Description |
+|:------:|:---------|:------------|
+| `GET` | `/createAccount` | Create a new user account |
+| `GET` | `/getAccount` | Retrieve account details |
+
+</details>
+
+---
+
+### 🏆 Milestones API
+
+<details open>
+<summary><b>MilestoneController</b></summary>
+
+| Method | Endpoint | Description |
+|:------:|:---------|:------------|
+| `GET` | `/updateMilestone` | Update a milestone |
+| `GET` | `/getMilestone` | Get milestone details |
+
+</details>
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Java 17+
+- Gradle
+- PostgreSQL
+
+### Running the Service
+
+```bash
+# Clone the repository
+git clone <repository-url>
+
+# Navigate to project directory
+cd BookPageContent
+
+# Build the project
+gradle build
+
+# Run the application
+gradle bootRun
+```
+
+---
+
+<div align="center">
+
+**Built with ☕ Java & 💚 Spring Boot**
+
+</div>
