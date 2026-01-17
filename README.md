@@ -54,7 +54,7 @@
 
 ### 📚 Books API
 
-<details open>
+<details>
 <summary><b>BookController</b></summary>
 
 | Method | Endpoint | Description |
@@ -98,7 +98,7 @@
 
 ### 📑 Chapters API
 
-<details open>
+<details>
 <summary><b>ChapterController</b></summary>
 
 | Method | Endpoint | Description |
@@ -121,7 +121,7 @@
 
 ### 🖼️ Images API
 
-<details open>
+<details>
 <summary><b>ImageController</b></summary>
 
 | Method | Endpoint | Description |
@@ -136,7 +136,7 @@
 
 ### 🎬 Videos API
 
-<details open>
+<details>
 <summary><b>VideoController</b></summary>
 
 | Method | Endpoint | Description |
@@ -151,7 +151,7 @@
 
 ### 🔍 Search API
 
-<details open>
+<details>
 <summary><b>SearchController</b></summary>
 
 | Method | Endpoint | Description |
@@ -167,7 +167,7 @@
 
 ### 👤 Accounts API
 
-<details open>
+<details>
 <summary><b>AccountController</b></summary>
 
 | Method | Endpoint | Description |
@@ -181,7 +181,7 @@
 
 ### 🏆 Milestones API
 
-<details open>
+<details>
 <summary><b>MilestoneController</b></summary>
 
 | Method | Endpoint | Description |
