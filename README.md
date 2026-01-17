@@ -4,6 +4,11 @@
 
 <img width="7840" height="3160" alt="ArchitectureDiagram" src="https://github.com/user-attachments/assets/7c54298a-6cd0-4cfb-acc4-667efa35df81" />
 
+## Entity-Relationship Diagram
+
+<img width="2352" height="1896" alt="ERDiagram" src="https://github.com/user-attachments/assets/96cbe857-91d7-4841-bba7-0c9318674b22" />
+
+
 ## Book Endpoints
 
 **BookController**
