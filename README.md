@@ -1,5 +1,9 @@
 # Book Page Content (public)
 
+## High-Level Overview
+
+<img width="784" height="654" alt="OverviewDiagram_v4" src="https://github.com/user-attachments/assets/7a2157d6-41c4-492f-97e3-9c9898cec451" />
+
 ## System Architecture
 
 <img width="7840" height="3160" alt="ArchitectureDiagram" src="https://github.com/user-attachments/assets/7c54298a-6cd0-4cfb-acc4-667efa35df81" />
