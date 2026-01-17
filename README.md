@@ -1,5 +1,8 @@
 # Book Page Content (public)
 
+## System Architecture
+
+<img width="7840" height="3160" alt="ArchitectureDiagram" src="https://github.com/user-attachments/assets/7c54298a-6cd0-4cfb-acc4-667efa35df81" />
 
 ## Book Endpoints
 
